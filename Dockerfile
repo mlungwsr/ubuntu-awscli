@@ -13,7 +13,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Setup sshd
 RUN mkdir -p /var/run/sshd
 RUN echo 'root:password' | chpasswd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # download and install pip
 RUN curl -sO https://bootstrap.pypa.io/get-pip.py
@@ -22,5 +22,8 @@ RUN python get-pip.py
 # install AWS CLI
 RUN pip install awscli
 
-EXPOSE 22 80 443
+# Setup AWS CLI Command Completion
+RUN echo complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
+
+EXPOSE 22
 CMD ["/usr/bin/supervisord"]
