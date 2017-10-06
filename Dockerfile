@@ -22,4 +22,4 @@ RUN pip install awscli
 RUN echo complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd -D"]
+CMD /usr/sbin/sshd -D
