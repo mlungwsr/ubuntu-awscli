@@ -4,11 +4,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install pre-reqs
-RUN apt-get install -y python curl openssh-server supervisor
-
-# Setup supervisor
-RUN mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN apt-get install -y python curl openssh-server
 
 # Setup sshd
 RUN mkdir -p /var/run/sshd
@@ -26,4 +22,4 @@ RUN pip install awscli
 RUN echo complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
 
 EXPOSE 22
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/sbin/sshd -D"]
