@@ -12,3 +12,5 @@ cd ubuntu-awscli/
 docker built -t ubuntu-awscli .
 
 docker run -dit ubuntu-awscli
+
+[![PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com/?stack=https://raw.githubusercontent.com/mlungwsr/ubuntu-awscli/master/files/stack.yml)
