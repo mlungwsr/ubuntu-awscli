@@ -9,7 +9,7 @@ git clone https://github.com/mlungwsr/ubuntu-awscli.git
 
 cd ubuntu-awscli/
 
-docker built -t ubuntu-awscli .
+docker build -t ubuntu-awscli .
 
 docker run -dit ubuntu-awscli
 
