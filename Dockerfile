@@ -24,3 +24,4 @@ RUN echo complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
 CMD /usr/sbin/sshd -D
 
 EXPOSE 22
+
