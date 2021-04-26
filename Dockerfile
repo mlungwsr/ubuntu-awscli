@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install pre-reqs
-RUN apt-get install -y python curl openssh-server
+RUN apt-get install -y python3 curl openssh-server
 
 # Setup sshd
 RUN mkdir -p /var/run/sshd
@@ -13,10 +13,10 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 
 # download and install pip
 RUN curl -sO https://bootstrap.pypa.io/get-pip.py
-RUN python get-pip.py
+RUN python3 get-pip.py
 
 # install AWS CLI
-RUN pip install awscli
+RUN pip3 install awscli
 
 # Setup AWS CLI Command Completion
 RUN echo complete -C '/usr/local/bin/aws_completer' aws >> ~/.bashrc
